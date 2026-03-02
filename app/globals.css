@@ -1,26 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Optima on macOS; Libre Franklin (similar humanist sans) on Windows/other */
+  --font-optima: "Optima", "Libre Franklin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Open Sans: loaded via next/font in layout, variable applied on body */
+  --font-open-sans: "Open Sans", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Ensure font-optima applies (Tailwind v4 theme utility) */
+
+@font-face {
+  font-family: "Optima";
+  src: url("/fonts/optima/OptimaMedium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "OptimaNormal";
+  src: url("/fonts/optima/OPTIMA.TTF") format("truetype");
+  font-weight: 400;
+}
+.font-optima {
+  font-family: "Optima", sans-serif;
+}
+.font-optima-normal {
+  font-family: "OptimaNormal", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.font-open-sans {
+  font-family: "Open Sans", sans-serif;
 }

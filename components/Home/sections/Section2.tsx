@@ -52,7 +52,7 @@ function Section2() {
                   fill
                   className="object-cover z-1"
                 />
-                <div className="absolute inset-0 w-full h-full flex justify-center pt-8 sm:pt-12 lg:pt-16 z-10 px-4">
+                <div className="absolute inset-0 w-full h-full flex justify-center pt-8 sm:pt-12 lg:pt-20 z-10 px-4">
                   <h2
                     style={{ fontWeight: "300" }}
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] text-white uppercase font-optima text-center"

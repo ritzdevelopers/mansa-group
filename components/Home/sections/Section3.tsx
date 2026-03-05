@@ -101,17 +101,20 @@ function Section3() {
     }, []);
     return (
         <section
-            className="w-full py-8 px-4 sm:py-22 sm:px-8 lg:py-[76px] lg:px-16 flex justify-center overflow-hidden items-center bg-black"
+            className="relative w-full py-8 px-4 sm:py-22 sm:px-8 lg:py-[76px] lg:px-16 flex justify-center overflow-hidden items-center bg-black"
             ref={sectionRef}
-            style={{
-                backgroundImage: "url('/home/s3/s3-banner.jpg')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-            }}
         >
+            <video
+                src="/animated-bg.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 z-0 h-full w-full object-cover"
+                aria-hidden
+            />
             {/* Centered Align Container  */}
-            <div className="w-full max-w-full md:h-auto h-screen flex flex-col justify-center items-center gap-8 sm:gap-12 lg:gap-20">
+            <div className="relative z-10 w-full max-w-full md:h-auto h-screen flex flex-col justify-center items-center gap-8 sm:gap-12 lg:gap-20">
                 {/* Section Heading  */}
                 <div className="flex flex-col w-full gap-6 sm:gap-8 lg:gap-10 justify-center items-center text-center px-2">
                     <div className="main2">

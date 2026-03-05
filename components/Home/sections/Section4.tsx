@@ -13,8 +13,8 @@ import styles from "../page.module.css";
 function Section4() {
     const [activeTab, setActiveTab] = useState<string>("residential");
     const swiperRef = useRef<SwiperType | null>(null);
-    const arr1 = [1, 2, 3];
-    const arr2 = [1, 2, 3];
+    const arr1 = [1, 2, 3, 4, 5, 6];
+    const arr2 = [1, 2, 3, 4, 5, 6];
     const slides = activeTab === "residential" ? arr1 : arr2;
     return (
         <section className="w-full py-8 sm:py-12 lg:py-[56px] flex justify-center items-center overflow-hidden bg-white px-0">
@@ -44,6 +44,7 @@ function Section4() {
                             spaceBetween={32}
                             slidesPerView="auto"
                             allowTouchMove
+                            loop
                         >
                             {slides.map((index) => (
                                 <SwiperSlide key={index}>

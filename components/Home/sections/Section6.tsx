@@ -28,7 +28,7 @@ function Section6() {
     return (
         <section className="w-full px-4 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:px-16 lg:py-[56px] pb-20 sm:pb-24 md:pb-20 lg:pb-40 bg-[#F9F9F9]">
             {/* Centered Align Container  */}
-            <div className="w-full flex flex-col justify-center items-center gap-0 sm:gap-8">
+            <div className="w-full flex flex-col justify-center items-center gap-0 ">
                 {/* Section Heading  */}
                 <div className="flex justify-center items-center gap-4 text-center">
                     <h2 className="text-xl sm:text-2xl md:text-[30px] lg:text-[36px] text-black uppercase font-optima">

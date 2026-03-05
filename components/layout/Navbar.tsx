@@ -50,7 +50,7 @@ function Navbar() {
         {/* Desktop: Center nav links */}
         <div className="hidden lg:flex justify-between gap-6 items-center">
           {NAV_LINKS.map(({ label, href }) => (
-            <a key={label} href={href} className="font-[500] text-[16px] uppercase text-white font-optima whitespace-nowrap">
+            <a key={label} href={href} className="font-[500] text-[16px] uppercase text-white font-optima whitespace-nowrap transition-all duration-200 hover:opacity-80 hover:underline underline-offset-4 cursor-pointer">
               {label}
             </a>
           ))}
@@ -58,12 +58,12 @@ function Navbar() {
 
         {/* Desktop: Right section */}
         <div className="hidden lg:flex gap-4 items-center shrink-0">
-          <button type="button" aria-label="Search" className="text-white p-1">
+          <button type="button" aria-label="Search" className="text-white p-1 transition-transform duration-200 hover:scale-110 active:scale-95 cursor-pointer">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z" fill="white" />
             </svg>
           </button>
-          <button type="button" className="w-[159px] h-[37px] font-[500] text-[16px] uppercase text-white font-optima bg-[#144168] shrink-0">
+          <button type="button" className="w-[159px] h-[37px] font-[500] text-[16px] uppercase text-white font-optima bg-[#144168] shrink-0 transition-all duration-200 hover:scale-105 hover:bg-[#1a5280] active:scale-[0.98] cursor-pointer">
             Enquire Now
           </button>
         </div>
@@ -105,7 +105,7 @@ function Navbar() {
               <a
                 key={label}
                 href={href}
-                className="font-[500] text-[18px] uppercase text-white font-optima"
+                className="font-[500] text-[18px] uppercase text-white font-optima transition-all duration-200 hover:opacity-80 hover:translate-x-1 cursor-pointer w-fit"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {label}
@@ -113,13 +113,13 @@ function Navbar() {
             ))}
           </nav>
           <div className="flex flex-col gap-4 mt-auto">
-            <button type="button" aria-label="Search" className="flex items-center gap-2 text-white font-optima text-[16px]">
+            <button type="button" aria-label="Search" className="flex items-center gap-2 text-white font-optima text-[16px] transition-all duration-200 hover:opacity-80 cursor-pointer w-fit">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z" fill="white" />
               </svg>
               Search
             </button>
-            <button type="button" className="w-full h-12 font-[500] text-[16px] uppercase text-white font-optima bg-[#144168]">
+            <button type="button" className="w-full h-12 font-[500] text-[16px] uppercase text-white font-optima bg-[#144168] transition-all duration-200 hover:scale-[1.02] hover:bg-[#1a5280] active:scale-[0.98] cursor-pointer">
               Enquire Now
             </button>
           </div>

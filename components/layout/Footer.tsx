@@ -13,13 +13,12 @@ function Footer() {
                 <div className="flex justify-center items-center gap-2 sm:gap-3 md:gap-4 flex-wrap px-4">
                     {
                         [IoLogoYoutube, FaFacebookF, FaXTwitter, FaLinkedinIn, FaInstagram].map((Icon, index) => (
-                            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] bg-white rounded-full flex justify-center items-center shrink-0" key={index}>
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] bg-white rounded-full flex justify-center items-center shrink-0 transition-transform duration-300 ease-out hover:scale-110 hover:shadow-lg cursor-pointer" key={index}>
                                 <Icon className="text-[#652A27] text-lg sm:text-xl md:text-[26px] lg:text-[30px]" />
                             </div>
                         ))
                     }
                 </div>
-
             {/* Centered Align Container  */}
             <div className="py-6 px-4 sm:py-7 sm:px-6 md:px-10 lg:py-8 lg:px-20 border-b border-t border-[#194D7A] flex flex-col lg:flex-row justify-between gap-8 w-full">
                 {/* Left Side Container  */}
@@ -32,11 +31,11 @@ function Footer() {
                         <ul style={{
 
                         }} className="text-xs sm:text-sm lg:text-[15px] text-[#FFFFFF99] flex flex-col gap-3 sm:gap-4">
-                            <li>Overview</li>
-                            <li>Vision & Mission</li>
-                            <li>Meet the Founder</li>
-                            <li>Customer Relationship</li>
-                            <li>Podcast</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Overview</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Vision & Mission</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Meet the Founder</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Customer Relationship</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Podcast</li>
                         </ul>
                     </div>
 
@@ -48,13 +47,10 @@ function Footer() {
                         <ul style={{
                             fontWeight: 300
                         }} className="text-xs sm:text-sm lg:text-[15px] text-[#FFFFFF99] flex flex-col gap-3 sm:gap-4">
-                            <li>Residential</li>
-                            <li>Commercial</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Residential</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Commercial</li>
                         </ul>
                     </div>
-
-
-
 
                     {/* Col 4  */}
                     <div className="flex flex-col justify-start items-start gap-4 sm:gap-6">
@@ -64,10 +60,10 @@ function Footer() {
                         <ul style={{
 
                         }} className="text-xs sm:text-sm lg:text-[15px] text-[#FFFFFF99] flex flex-col gap-3 sm:gap-4">
-                            <li>In The Media</li>
-                            <li>Awards & Recognition</li>
-                            <li>Events</li>
-                            <li>Blogs</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">In The Media</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Awards & Recognition</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Events</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Blogs</li>
                         </ul>
                     </div>
 
@@ -79,10 +75,10 @@ function Footer() {
                         <ul style={{
 
                         }} className="text-xs sm:text-sm lg:text-[15px] text-[#FFFFFF99] flex flex-col gap-3 sm:gap-4">
-                            <li>NRI Corner</li>
-                            <li>Customer Support</li>
-                            <li>Careers</li>
-                            <li>Contact Us</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">NRI Corner</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Customer Support</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Careers</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-1 w-fit">Contact Us</li>
                         </ul>
                     </div>
                 </div>
@@ -94,7 +90,7 @@ function Footer() {
                             fontWeight: 700
                         }} className={`${styles.fontopensans} text-2xl sm:text-3xl md:text-[32px] lg:text-[36px] text-white uppercase`}>Stay connected</p>
                     </div>
-                    <div className="w-32 sm:w-40 lg:w-[179px]">
+                    <div className="w-32 sm:w-40 lg:w-[179px] transition-transform duration-300 hover:scale-105 cursor-pointer">
                         <img src="/layout/google-review.png" alt="" className="w-full h-auto" />
                     </div>
                 </div>
@@ -102,7 +98,7 @@ function Footer() {
 
             {/* Bottom Container  */}
             <div className="w-full flex justify-center items-center px-4">
-                <img src="/layout/mansha-logo2.png" className="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[460px] lg:max-w-[530px] lg:w-[530px] h-auto" alt="" />
+                <img src="/layout/mansha-logo2.png" className="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[460px] lg:max-w-[530px] lg:w-[530px] h-auto transition-opacity duration-300 hover:opacity-90 cursor-pointer" alt="" />
             </div>
             </div>
         </footer>

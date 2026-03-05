@@ -8,15 +8,18 @@ import Section7 from "@/components/Home/sections/Section7";
 import Section8 from "./sections/Section8";
 function Home() {
     return (
-        <main>
-            <Section1 />
+        <main className="relative">
+          <div className="sticky -top-40 z-0">
+          <Section1 />
+          </div>
+        <div className="relative z-10">    
             <Section2 />
             <Section3 />
             <Section4 />
             <Section5 />    
             <Section6 />
             <Section7 />
-            <Section8 />
+            <Section8 /></div>
         </main>
     );
 }

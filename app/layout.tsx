@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
+import LenisSmoothScroll from "@/components/layout/LenisSmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 
 const geistSans = Geist({
@@ -34,9 +35,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <LenisSmoothScroll>
+          <Navbar />
+          {children}
+          <Footer />
+        </LenisSmoothScroll>
       </body>
     </html>
   );

@@ -13,20 +13,119 @@
 @font-face {
   font-family: "Optima";
   src: url("/fonts/optima/OptimaMedium.ttf") format("truetype");
-  font-weight: 500;
 }
+
 @font-face {
   font-family: "OptimaNormal";
   src: url("/fonts/optima/OPTIMA.TTF") format("truetype");
-  font-weight: 400;
 }
+
 .font-optima {
   font-family: "Optima", sans-serif;
 }
+
 .font-optima-normal {
   font-family: "OptimaNormal", sans-serif;
 }
 
 .font-open-sans {
   font-family: "Open Sans", sans-serif;
+}
+
+
+
+
+.main2 {
+  position: relative;
+  /* background-color: red; */
+}
+
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 24px !important;
+    left: -155px !important;
+    top: -32px !important;
+  }
+
+  .h2 {
+    font-size: 19px !important;
+    transform: translate(-18%, -95%) !important;
+  }
+}
+
+.h1 {
+  font-size: 46px;
+  color: white;
+  position: absolute;
+  left: -355px;
+  top: -32px;
+
+}
+
+.h2 {
+  /*   color: white; */
+  font-size: 46px;
+  position: absolute;
+  transform: translate(-26%, -50%);
+  margin: 0;
+}
+
+.first {
+  color: white;
+  -webkit-text-stroke: 2px #ffffff;
+}
+
+.second {
+  color: #C49B64;
+  -webkit-text-stroke: 2px #C49B64;
+  animation: waves 4s ease-in-out infinite;
+}
+
+@keyframes waves {
+
+  0%,
+  100% {
+    clip-path: polygon(0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%);
+  }
+
+  50% {
+    clip-path: polygon(0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%);
+  }
+}
+
+/* Section2 Swiper - fill container without affecting layout */
+.section2-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.section2-swiper .swiper-slide {
+  height: 100%;
+}
+
+/* Section4 Projects Swiper - slide width matches S4Card */
+.section4-swiper {
+  width: 100%;
+  overflow: visible;
+}
+
+.section4-swiper .swiper-slide {
+  width: 492px;
+  flex-shrink: 0;
 }

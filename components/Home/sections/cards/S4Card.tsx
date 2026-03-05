@@ -3,13 +3,13 @@ import styles from "@/components/Home/page.module.css";
 
 function S4Card({ index }: { index: number }) {
     return (
-        <div className={`w-[492px] h-[670px] shrink-0 relative overflow-hidden `}>
+        <div className="group w-[492px] h-[670px] shrink-0 relative overflow-hidden cursor-pointer">
             <div className="w-full h-full relative">
                 <Image src={`/home/s4/s4-slider-img2.jpg`} alt="S4 Card" fill className="object-cover" />
             </div>
 
-            {/* Absolute Positioned Overlay That Will Open On Hover  */}
-            <div className={`w-full h-full absolute inset-0 ${styles.s4Card} flex flex-col justify-end  items-center gap-6 px-4 py-8 text-center`}>
+            {/* Absolute Positioned Overlay – slides up from bottom on hover */}
+            <div className={`w-full h-full absolute inset-0 ${styles.s4Card} flex flex-col justify-end items-center gap-6 px-4 py-8 text-center translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0`}>
                 <p className="font-[400] text-[16px] capitalize text-white font-open-sans">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ex....</p>
                 <div className="flex justify-center items-center gap-2">
                     <p className="font-[600] text-[16px] text-[#C49B64] font-open-sans">Discover more</p>

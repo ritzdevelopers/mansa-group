@@ -8,7 +8,7 @@ function Section5() {
         <section
             className="w-full flex justify-center min-h-[80vh] sm:min-h-[90vh] lg:min-h-[120vh] items-center px-4 py-10 sm:px-6 sm:py-12 md:px-10 md:py-14 lg:px-16 lg:py-[76px] relative bg-black"
         >
-            <div style={{ height: '100%', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, cursor: 'pointer' }}>
+            {/* <div style={{ height: '100%', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, cursor: 'pointer' }}>
                 <GhostCursor
                     // Visuals
                     color="#B19EEF"
@@ -29,7 +29,7 @@ function Section5() {
                     fadeDelayMs={1000}
                     fadeDurationMs={1500}
                 />
-            </div>
+            </div> */}
 
             {/* Centered Align Container  */}
             <div className="w-full flex flex-col justify-center items-center gap-4 sm:gap-5 lg:gap-6">

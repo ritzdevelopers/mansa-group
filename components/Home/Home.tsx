@@ -17,21 +17,13 @@ function Home() {
         <div className=" z-10">    
             <Section2 />
             <Section3 />
-            <LazySection rootMargin="200px">
-                <Section4 />
-            </LazySection>
-            <LazySection rootMargin="200px">
-                <Section5 />
-            </LazySection>
-            <LazySection rootMargin="150px">
-                <Section6 />
-            </LazySection>
-            <LazySection rootMargin="150px">
-                <Section7 />
-            </LazySection>
-            <LazySection rootMargin="150px">
-                <Section8 />
-            </LazySection>
+
+            
+            <Section4 />
+            <Section5 />
+            <Section6 />
+            <Section7 />
+            <Section8 />
             </div>
         </main>
     );

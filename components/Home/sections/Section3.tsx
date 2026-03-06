@@ -12,7 +12,26 @@ const SLIDE_STEP = CARD_WIDTH + CARD_GAP;
 const VISIBLE_CARDS = 3;
 const VIEWPORT_WIDTH_PX = CARD_WIDTH * VISIBLE_CARDS + CARD_GAP * (VISIBLE_CARDS - 1);
 
-const CARD_INDEXES = [0, 1, 2, 3, 4];
+const CARD_INDEXES = [
+    {
+        img:"/home/s3/VegaStreet2.jpeg",
+        title:"Vega Street",
+    },
+    {
+        img:"/home/s3/aagman-img.jpg",
+        title:"",
+    },
+    {
+        img:"/home/s3/VegaStreet3.jpeg",
+        title:"Vega Street",
+    },
+    {
+        img:"/home/s3/aagman-img2.jpg",
+        title:"",
+    },
+    
+];
+// const cardData = 
 const TOTAL_CARDS = CARD_INDEXES.length;
 const MAX_TRANSLATE_DESKTOP = TOTAL_CARDS > 1 ? SLIDE_STEP * (TOTAL_CARDS - 1) : 0;
 
@@ -135,9 +154,11 @@ function Section3() {
                         className="flex items-center gap-4 sm:gap-6 px-4 sm:px-8 lg:px-18 min-h-[280px] h-[55vw] sm:h-[450px] lg:h-[633px] max-h-[633px]"
                         style={{ willChange: "transform" }}
                     >
-                        {CARD_INDEXES.map((index) => (
+                        {CARD_INDEXES.map((item, index) => (
                             <S3Card
                                 index={index}
+                                img={item.img}
+                                title={item.title}
                                 key={index}
                                 isActive={activeCard === index}
                                 ref={(el) => { cardRefs.current[index] = el; }}

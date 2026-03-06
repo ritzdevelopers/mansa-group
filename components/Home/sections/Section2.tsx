@@ -11,20 +11,17 @@ import "swiper/css/navigation";
 
 const slides = [
   {
-    image: "/home/s2/s2-img1.jpg",
-    title: "Aagman",
-    subtitle: "by mansha",
-  },
-  {
-    image: "/home/s2/s2-img1.jpg",
-    title: "Slide 2",
-    subtitle: "coming soon",
-  },
-  {
-    image: "/home/s2/s2-img1.jpg",
-    title: "Slide 3",
+    image: "/home/s2/aagmanbymansha.jpg",
+    title: "Aagman by Mansha",
     subtitle: "",
   },
+  {
+    image: "/home/s2/VegaStreet.jpeg",
+    title: "Vega Street",
+    subtitle: "",
+  },
+
+  
 ];
 
 function Section2() {

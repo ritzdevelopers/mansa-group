@@ -3,7 +3,7 @@ import Image from "next/image";
 import { forwardRef } from "react";
 import styles from "../../page.module.css"
 
-const S3Card = forwardRef<HTMLDivElement, { index: number; isActive?: boolean }>(function S3Card({ index, isActive = false }, ref) {
+const S3Card = forwardRef<HTMLDivElement, { index: number; isActive?: boolean; img: string; title: string }>(function S3Card({ index, isActive = false, img, title }, ref) {
     return (
         <div
             ref={ref}
@@ -15,20 +15,20 @@ const S3Card = forwardRef<HTMLDivElement, { index: number; isActive?: boolean }>
         >
             <div className="relative w-[95%] h-[95%] rounded-full overflow-hidden">
                 <Image
-                    src={`/home/s3/s3-slider-img${index + 1}.jpg`}
+                    src={img}
                     alt="S3 Card"
                     fill
                     className="object-cover transition-transform duration-500 ease-out"
                     style={{ transform: isActive ? "scale(1.05)" : "scale(1)" }}
                 />
 
-                <div className="absolute inset-0  w-full h-full flex justify-center items-center text-center">
+               {title && <div className="absolute inset-0  w-full h-full flex justify-center items-center text-center">
                     <div className={`${styles.glassCard} w-[362px]`}>
                         <h2 className={`font-[400] text-[33px] text-white uppercase font-optima ${isActive ? "opacity-100 transform transition-all duration-500 ease-out" : "opacity-0 transform transition-all duration-500 ease-out"}`}>
-                            Aagman by mansha
+                            {title}
                         </h2>
                     </div>
-                </div>
+                </div>}
             </div>
         </div>
     );

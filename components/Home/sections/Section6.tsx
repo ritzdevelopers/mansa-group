@@ -32,7 +32,7 @@ function Section6() {
                 {/* Section Heading  */}
                 <div className="flex justify-center items-center gap-4 text-center">
                     <h2 className="text-xl sm:text-2xl md:text-[30px] lg:text-[36px] text-black uppercase font-optima">
-                        customer's feedback
+                        customer feedback
                     </h2>
                 </div>
                 {/* Main Container  */}

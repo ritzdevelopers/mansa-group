@@ -35,11 +35,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} antialiased`}
       >
-        {/* <LenisSmoothScroll> */}
+        <LenisSmoothScroll>
           <Navbar />
           {children}
           <Footer />
-        {/* </LenisSmoothScroll> */}
+        </LenisSmoothScroll>
       </body>
     </html>
   );

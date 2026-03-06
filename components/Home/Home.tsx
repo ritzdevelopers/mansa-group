@@ -6,6 +6,8 @@ import Section5 from "@/components/Home/sections/Section5";
 import Section6 from "@/components/Home/sections/Section6";
 import Section7 from "@/components/Home/sections/Section7";
 import Section8 from "./sections/Section8";
+import LazySection from "@/components/Home/LazySection";
+
 function Home() {
     return (
         <main className="relative overflow-x-hidden">
@@ -15,11 +17,21 @@ function Home() {
         <div className=" z-10">    
             <Section2 />
             <Section3 />
-            <Section4 />
-            <Section5 />
-            <Section6 />
-            <Section7 />
-            <Section8 />
+            <LazySection rootMargin="200px">
+                <Section4 />
+            </LazySection>
+            <LazySection rootMargin="200px">
+                <Section5 />
+            </LazySection>
+            <LazySection rootMargin="150px">
+                <Section6 />
+            </LazySection>
+            <LazySection rootMargin="150px">
+                <Section7 />
+            </LazySection>
+            <LazySection rootMargin="150px">
+                <Section8 />
+            </LazySection>
             </div>
         </main>
     );

@@ -54,9 +54,25 @@ function Section3() {
     const cardsWrapperRef = useRef<HTMLDivElement>(null);
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [activeCard, setActiveCard] = useState(0);
+    const [sectionInView, setSectionInView] = useState(false);
     const maxTranslateRef = useRef(MAX_TRANSLATE_DESKTOP);
 
+    // Defer ScrollTrigger + video until section is near viewport (reduces Vercel/prod lag)
     useEffect(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry?.isIntersecting) setSectionInView(true);
+            },
+            { rootMargin: "20% 0px", threshold: 0 }
+        );
+        observer.observe(section);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!sectionInView) return;
         gsap.registerPlugin(ScrollTrigger);
         const section = sectionRef.current;
         const wrapper = cardsWrapperRef.current;
@@ -80,13 +96,11 @@ function Section3() {
                     const progress = self.progress;
                     const x = -progress * maxTranslateRef.current;
                     gsap.set(wrapperEl, { x, force3D: true });
-                    // Derive active index from progress only - no getBoundingClientRect (avoids layout thrashing)
                     const closestIndex = Math.min(
                         TOTAL_CARDS - 1,
                         Math.max(0, Math.round(progress * (TOTAL_CARDS - 1)))
                     );
                     wrapperEl.dataset.activeIndex = String(closestIndex);
-                    // Sync React state only when scroll settles (avoids setState during scroll = no RAF violations)
                     if (scrollEndTimeoutId) clearTimeout(scrollEndTimeoutId);
                     scrollEndTimeoutId = setTimeout(() => {
                         setActiveCard(closestIndex);
@@ -96,7 +110,6 @@ function Section3() {
             });
         }
 
-        // Wait for layout so card dimensions are correct (especially on mobile)
         let trigger: ScrollTrigger | null = null;
         const rafId = requestAnimationFrame(() => {
             trigger = createTrigger();
@@ -117,18 +130,20 @@ function Section3() {
             trigger?.kill();
             window.removeEventListener("resize", handleResize);
         };
-    }, []);
+    }, [sectionInView]);
+
     return (
         <section
             className="relative w-full py-8 px-4 sm:py-22 sm:px-8 lg:py-[76px] lg:px-16 flex justify-center overflow-hidden items-center bg-black"
             ref={sectionRef}
         >
             <video
-                src="/animated-bg.mp4"
-                autoPlay
+                src={sectionInView ? "/animated-bg.mp4" : undefined}
+                autoPlay={sectionInView}
                 muted
                 loop
-                playsInline 
+                playsInline
+                preload="none"
                 className="absolute inset-0 z-0 h-full w-full object-cover"
                 aria-hidden
             />

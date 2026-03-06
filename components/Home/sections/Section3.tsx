@@ -15,19 +15,19 @@ const VIEWPORT_WIDTH_PX = CARD_WIDTH * VISIBLE_CARDS + CARD_GAP * (VISIBLE_CARDS
 const CARD_INDEXES = [0, 1, 2, 3];
 const cardData = [
     {
-        img:"/home/s3/VegaStreet2.jpeg",
+        img:"/home/s3/vega.jpg",
         title:"Vega Street",
     },
     {
-        img:"/home/s3/aagman-img.jpg",
+        img:"/home/s3/aag.jpg",
         title:"",
     },
     {
-        img:"/home/s3/VegaStreet3.jpeg",
+        img:"/home/s3/vega2.jpg",
         title:"Vega Street",
     },
     {
-        img:"/home/s3/aagman-img2.jpg",
+        img:"/home/s3/aag2.jpg",
         title:"",
     },
 ]

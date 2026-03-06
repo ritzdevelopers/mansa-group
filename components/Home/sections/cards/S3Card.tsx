@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import { forwardRef } from "react";
 import styles from "../../page.module.css"
 
@@ -14,11 +14,11 @@ const S3Card = forwardRef<HTMLDivElement, { index: number; isActive?: boolean; c
             }}
         >
             <div className="relative w-[95%] h-[95%] rounded-full overflow-hidden">
-                <Image
+                <img
                     src={cardData.img}
                     alt="S3 Card"
-                    fill
-                    className="object-cover transition-transform duration-500 ease-out"
+                    // fill
+                    className="object-cover w-full h-full transition-transform duration-500 ease-out"
                     style={{ transform: isActive ? "scale(1.05)" : "scale(1)" }}
                 />
 

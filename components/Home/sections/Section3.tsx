@@ -4,6 +4,7 @@ import S3Card from "./cards/S3Card";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styles from "./Section3.module.css";
 
 const CARD_WIDTH = 633;
 const CARD_GAP = 24;
@@ -63,8 +64,7 @@ function Section3() {
 
         const sectionEl = section;
         const wrapperEl = wrapper;
-
-        const lastActiveRef = { current: 0 };
+        let scrollEndTimeoutId: ReturnType<typeof setTimeout> | null = null;
 
         function createTrigger() {
             const { maxTranslate, end } = getMaxTranslateAndEnd(wrapperEl);
@@ -80,15 +80,18 @@ function Section3() {
                     const progress = self.progress;
                     const x = -progress * maxTranslateRef.current;
                     gsap.set(wrapperEl, { x, force3D: true });
-                    // Derive active card from progress (no getBoundingClientRect = no layout thrashing)
+                    // Derive active index from progress only - no getBoundingClientRect (avoids layout thrashing)
                     const closestIndex = Math.min(
                         TOTAL_CARDS - 1,
                         Math.max(0, Math.round(progress * (TOTAL_CARDS - 1)))
                     );
-                    if (closestIndex !== lastActiveRef.current) {
-                        lastActiveRef.current = closestIndex;
+                    wrapperEl.dataset.activeIndex = String(closestIndex);
+                    // Sync React state only when scroll settles (avoids setState during scroll = no RAF violations)
+                    if (scrollEndTimeoutId) clearTimeout(scrollEndTimeoutId);
+                    scrollEndTimeoutId = setTimeout(() => {
                         setActiveCard(closestIndex);
-                    }
+                        scrollEndTimeoutId = null;
+                    }, 120);
                 },
             });
         }
@@ -109,12 +112,12 @@ function Section3() {
         window.addEventListener("resize", handleResize);
 
         return () => {
+            if (scrollEndTimeoutId) clearTimeout(scrollEndTimeoutId);
             cancelAnimationFrame(rafId);
             trigger?.kill();
             window.removeEventListener("resize", handleResize);
         };
     }, []);
-    
     return (
         <section
             className="relative w-full py-8 px-4 sm:py-22 sm:px-8 lg:py-[76px] lg:px-16 flex justify-center overflow-hidden items-center bg-black"
@@ -148,8 +151,9 @@ function Section3() {
                 >
                     <div
                         ref={cardsWrapperRef}
-                        className="flex items-center gap-4 sm:gap-6 px-4 sm:px-8 lg:px-18 min-h-[280px] h-[55vw] sm:h-[450px] lg:h-[633px] max-h-[633px]"
+                        className={`${styles.section3CardsWrapper} flex items-center gap-4 sm:gap-6 px-4 sm:px-8 lg:px-18 min-h-[280px] h-[55vw] sm:h-[450px] lg:h-[633px] max-h-[633px]`}
                         style={{ willChange: "transform" }}
+                        data-active-index="0"
                     >
                         {CARD_INDEXES.map((item, index) => (
                             <S3Card
@@ -157,8 +161,9 @@ function Section3() {
                                 img={item.img}
                                 title={item.title}
                                 key={index}
-                                isActive={activeCard === index}
                                 ref={(el) => { cardRefs.current[index] = el; }}
+                                cardClassName={styles.section3Card}
+                                titleClassName={styles.section3CardTitle}
                             />
                         ))}
                     </div>

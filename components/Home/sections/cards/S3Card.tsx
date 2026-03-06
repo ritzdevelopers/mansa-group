@@ -1,37 +1,44 @@
 "use client";
 import Image from "next/image";
-import { forwardRef } from "react";
-import styles from "../../page.module.css"
+import { forwardRef, memo, ForwardRefExoticComponent, RefAttributes } from "react";
+import styles from "../../page.module.css";
 
-const S3Card = forwardRef<HTMLDivElement, { index: number; isActive?: boolean; img: string; title: string }>(function S3Card({ index, isActive = false, img, title }, ref) {
+export type S3CardProps = {
+    index: number;
+    img: string;
+    title: string;
+    cardClassName?: string;
+    titleClassName?: string;
+};
+
+const S3Card: ForwardRefExoticComponent<S3CardProps & RefAttributes<HTMLDivElement>> = memo(forwardRef<HTMLDivElement, S3CardProps>(function S3Card(
+    { index, img, title, cardClassName = "", titleClassName = "" },
+    ref
+) {
     return (
         <div
             ref={ref}
-            className={`${isActive ? "blur-0" : "filter blur-sm"} lg:w-[633px] lg:h-[633px] w-[300px] h-[300px] md:w-[500px] md:h-[500px] shrink-0 border border-[#BABABA] rounded-full flex justify-center items-center origin-center`}
-            style={{
-                transform: isActive ? "scale(1)" : "scale(0.94)",
-                transition: "width 0.35s ease-out, height 0.35s ease-out, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1)",
-            }}
+            className={`${cardClassName} lg:w-[633px] lg:h-[633px] w-[300px] h-[300px] md:w-[500px] md:h-[500px] shrink-0 border border-[#BABABA] rounded-full flex justify-center items-center origin-center`}
         >
             <div className="relative w-[95%] h-[95%] rounded-full overflow-hidden">
                 <Image
                     src={img}
                     alt="S3 Card"
                     fill
-                    className="object-cover transition-transform duration-500 ease-out"
-                    style={{ transform: isActive ? "scale(1.05)" : "scale(1)" }}
+                    className="object-cover"
                 />
-
-               {title && <div className="absolute inset-0  w-full h-full flex justify-center items-center text-center">
-                    <div className={`${styles.glassCard} w-[362px]`}>
-                        <h2 className={`font-[400] text-[33px] text-white uppercase font-optima ${isActive ? "opacity-100 transform transition-all duration-500 ease-out" : "opacity-0 transform transition-all duration-500 ease-out"}`}>
-                            {title}
-                        </h2>
+                {title && (
+                    <div className="absolute inset-0 w-full h-full flex justify-center items-center text-center">
+                        <div className={`${styles.glassCard} w-[362px]`}>
+                            <h2 className={`${titleClassName} font-normal text-[33px] text-white uppercase font-optima`}>
+                                {title}
+                            </h2>
+                        </div>
                     </div>
-                </div>}
+                )}
             </div>
         </div>
     );
-});
+}));
 
 export default S3Card; 

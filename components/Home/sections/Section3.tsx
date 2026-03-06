@@ -128,7 +128,7 @@ function Section3() {
                 autoPlay
                 muted
                 loop
-                playsInline
+                playsInline 
                 className="absolute inset-0 z-0 h-full w-full object-cover"
                 aria-hidden
             />

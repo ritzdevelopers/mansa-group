@@ -33,7 +33,7 @@ function Section6() {
                         customer feedback
                     </h2>
                 </div>
-                {/* Main Container  */}z
+                {/* Main Container  */}
                 <div className="flex justify-center items-center gap-22 sm:gap-24 lg:gap-8 w-full flex-col lg:flex-row">
 
                     {/* Left Slide Button  */}

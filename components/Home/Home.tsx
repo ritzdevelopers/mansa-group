@@ -6,7 +6,7 @@ import Section5 from "@/components/Home/sections/Section5";
 import Section6 from "@/components/Home/sections/Section6";
 import Section7 from "@/components/Home/sections/Section7";
 import Section8 from "./sections/Section8";
-import LazySection from "@/components/Home/LazySection";
+
 
 function Home() {
     return (

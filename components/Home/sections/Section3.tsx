@@ -12,7 +12,25 @@ const SLIDE_STEP = CARD_WIDTH + CARD_GAP;
 const VISIBLE_CARDS = 3;
 const VIEWPORT_WIDTH_PX = CARD_WIDTH * VISIBLE_CARDS + CARD_GAP * (VISIBLE_CARDS - 1);
 
-const CARD_INDEXES = [0, 1, 2, 3, 4];
+const CARD_INDEXES = [0, 1, 2, 3];
+const cardData = [
+    {
+        img:"/home/s3/VegaStreet2.jpeg",
+        title:"Vega Street",
+    },
+    {
+        img:"/home/s3/aagman-img.jpg",
+        title:"",
+    },
+    {
+        img:"/home/s3/VegaStreet3.jpeg",
+        title:"Vega Street",
+    },
+    {
+        img:"/home/s3/aagman-img2.jpg",
+        title:"",
+    },
+]
 
 
 const TOTAL_CARDS = CARD_INDEXES.length;
@@ -142,6 +160,7 @@ function Section3() {
                                 index={index}
                                 key={index}
                                 isActive={activeCard === index}
+                                cardData={cardData[index]}
                                 ref={(el) => { cardRefs.current[index] = el; }}
                             />
                         ))}

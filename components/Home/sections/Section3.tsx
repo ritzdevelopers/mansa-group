@@ -114,6 +114,7 @@ function Section3() {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
+    
     return (
         <section
             className="relative w-full py-8 px-4 sm:py-22 sm:px-8 lg:py-[76px] lg:px-16 flex justify-center overflow-hidden items-center bg-black"

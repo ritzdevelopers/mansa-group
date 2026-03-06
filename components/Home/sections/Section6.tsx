@@ -4,10 +4,8 @@ import S6Card from "./cards/S6Card";
 import { useRef, useState } from "react";
 function Section6() {
     const [activeCard, setActiveCard] = useState(1);
-
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     function handleLeftSlide() {
-
         if (activeCard === 1) {
             setActiveCard(3);
         } else {
@@ -24,7 +22,7 @@ function Section6() {
         }
         console.log(activeCard);
     }
-
+    
     return (
         <section className="w-full px-4 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:px-16 lg:py-[56px] pb-20 sm:pb-24 md:pb-20 lg:pb-40 bg-[#F9F9F9]">
             {/* Centered Align Container  */}
@@ -35,7 +33,7 @@ function Section6() {
                         customer feedback
                     </h2>
                 </div>
-                {/* Main Container  */}
+                {/* Main Container  */}z
                 <div className="flex justify-center items-center gap-22 sm:gap-24 lg:gap-8 w-full flex-col lg:flex-row">
 
                     {/* Left Slide Button  */}
@@ -79,9 +77,6 @@ function Section6() {
                             <path d="M4.94978 6.36398L0 1.41421L1.41422 0L7.77818 6.36398L1.41422 12.7279L0 11.3137L4.94978 6.36398Z" fill="#666666" />
                         </svg>
                     </button>
-
-
-
 
                     {/* Buttons for mobile / tabs It Will Be Hide in Desktop View  */}
                     <div className="w-full flex justify-center items-center gap-4 lg:hidden">

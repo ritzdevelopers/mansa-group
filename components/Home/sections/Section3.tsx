@@ -64,6 +64,8 @@ function Section3() {
         const sectionEl = section;
         const wrapperEl = wrapper;
 
+        const lastActiveRef = { current: 0 };
+
         function createTrigger() {
             const { maxTranslate, end } = getMaxTranslateAndEnd(wrapperEl);
             maxTranslateRef.current = maxTranslate;
@@ -77,23 +79,17 @@ function Section3() {
                 onUpdate: (self) => {
                     const progress = self.progress;
                     const x = -progress * maxTranslateRef.current;
-                    gsap.set(wrapperEl, { x });
-                    const sectionRect = sectionEl.getBoundingClientRect();
-                    const sectionCenterX = sectionRect.left + sectionRect.width / 2;
-                    const cards = wrapperEl.children;
-                let closestIndex = 0;
-                let closestDist = Infinity;
-                for (let i = 0; i < cards.length; i++) {
-                    const cardRect = (cards[i] as HTMLElement).getBoundingClientRect();
-                    const cardCenterX = cardRect.left + cardRect.width / 2;
-                    const dist = Math.abs(cardCenterX - sectionCenterX);
-                    if (dist < closestDist) {
-                        closestDist = dist;
-                        closestIndex = i;
+                    gsap.set(wrapperEl, { x, force3D: true });
+                    // Derive active card from progress (no getBoundingClientRect = no layout thrashing)
+                    const closestIndex = Math.min(
+                        TOTAL_CARDS - 1,
+                        Math.max(0, Math.round(progress * (TOTAL_CARDS - 1)))
+                    );
+                    if (closestIndex !== lastActiveRef.current) {
+                        lastActiveRef.current = closestIndex;
+                        setActiveCard(closestIndex);
                     }
-                }
-                setActiveCard(closestIndex);
-            },
+                },
             });
         }
 

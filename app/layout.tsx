@@ -21,8 +21,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Mansa Group",
-  description: "Mansa Group",
+  title: "Mansha Group",
+  description: "Mansha Group",
 };
 
 export default function RootLayout({
